@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="34px" height="29px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-129,-327)">
+        <g id="output" transform="matrix(1,0,0,1,26.1845,41.6122)">
+            <g transform="matrix(0.953414,0.550454,-0.550454,0.953414,170.726,-52.0785)">
+                <path d="M120,285l12.99,7.5l0,15l-12.99,7.5l-12.99,-7.5l0,-15l12.99,-7.5Z" style="fill:rgb(203,203,203);"/>
+                <path d="M132.99,292.5l0,15l-12.99,7.5l-12.99,-7.5l0,-15l12.99,-7.5l12.99,7.5Zm-25.811,0.098l0,14.804l12.821,7.403l12.821,-7.403l0,-14.804l-12.821,-7.403l-12.821,7.403Z"/>
+            </g>
+            <g transform="matrix(0.8,0,0,0.8,60,144)">
+                <path d="M75,180c8.279,0 15,6.721 15,15c0,8.279 -6.721,15 -15,15c-8.279,0 -15,-6.721 -15,-15c0,-8.279 6.721,-15 15,-15Zm0,4.05c6.043,0 10.95,4.907 10.95,10.95c0,6.043 -4.907,10.95 -10.95,10.95c-6.043,0 -10.95,-4.907 -10.95,-10.95c0,-6.043 4.907,-10.95 10.95,-10.95Z" style="fill:rgb(230,230,230);stroke:rgb(49,49,49);stroke-width:0.23px;"/>
+            </g>
+            <g id="Ellipse" transform="matrix(2.22856,0,0,2.22856,-46.5508,-134.568)">
+                <circle cx="74.735" cy="195" r="2.712" style="fill:rgb(14,14,14);"/>
+            </g>
+            <g id="Rectangle" transform="matrix(0.8,0,0,0.8,60,144)">
+                <rect x="73.474" y="195" width="2.965" height="10.95" style="fill:rgb(42,42,42);"/>
+            </g>
+            <g id="Donut" transform="matrix(2.20446,0,0,2.20446,-48.2263,-129.592)">
+                <path d="M76.312,190.9c2.193,0 3.973,1.781 3.973,3.974c0,2.193 -1.78,3.974 -3.973,3.974c-2.193,0 -3.974,-1.781 -3.974,-3.974c0,-2.193 1.781,-3.974 3.974,-3.974Zm0,1.232c1.513,0 2.742,1.229 2.742,2.742c0,1.513 -1.229,2.742 -2.742,2.742c-1.514,0 -2.742,-1.229 -2.742,-2.742c0,-1.513 1.228,-2.742 2.742,-2.742Z" style="fill:rgb(60,60,60);stroke:rgb(26,26,26);stroke-width:0.44px;"/>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="15px" height="15px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-165,-365)">
+        <g id="screw" transform="matrix(1,0,0,1,90,185)">
+            <path id="Donut" d="M82.5,180c4.139,0 7.5,3.361 7.5,7.5c0,4.139 -3.361,7.5 -7.5,7.5c-4.139,0 -7.5,-3.361 -7.5,-7.5c0,-4.139 3.361,-7.5 7.5,-7.5Zm0,0.75c3.725,0 6.75,3.025 6.75,6.75c0,3.725 -3.025,6.75 -6.75,6.75c-3.725,0 -6.75,-3.025 -6.75,-6.75c0,-3.725 3.025,-6.75 6.75,-6.75Z" style="fill:rgb(52,52,52);"/>
+            <g id="Ellipse" transform="matrix(1.83518,0,0,1.83518,-69.3683,-156.557)">
+                <circle cx="82.754" cy="187.478" r="3.678" style="fill:rgb(231,231,231);"/>
+            </g>
+            <g id="Ellipse1" serif:id="Ellipse" transform="matrix(1.88095,0,0,2.48584,-71.8434,-277.453)">
+                <ellipse cx="82.056" cy="187.041" rx="1.987" ry="1.348" style="fill:rgb(52,52,52);stroke:rgb(50,50,50);stroke-width:0.45px;"/>
+            </g>
+            <path id="Curve" d="M82.5,181.2l0,12.6" style="fill:none;stroke:rgb(52,52,52);stroke-width:1.94px;"/>
+            <path id="Curve1" serif:id="Curve" d="M76.2,187.5l12.6,0" style="fill:none;stroke:rgb(52,52,52);stroke-width:1.94px;"/>
+        </g>
+    </g>
+</svg>
