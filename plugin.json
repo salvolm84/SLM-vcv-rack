@@ -10,7 +10,7 @@
   "pluginUrl": "",
   "manualUrl": "https://github.com/salvolm84/SLM-vcv-rack/blob/master/README.md",
   "sourceUrl": "https://github.com/salvolm84/SLM-vcv-rack",
-  "donateUrl": "",
+  "donateUrl": "https://paypal.me/salvolm",
   "modules": [
     {
       "slug": "mux-freak",
