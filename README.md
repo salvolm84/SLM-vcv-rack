@@ -24,3 +24,6 @@ note that the switching will always happens on multiple of the input clock. So i
 
 ### youtube demo
 coming soon...
+
+### donate
+in case you'd like to buy me a beer, please consider to [donate](https://paypal.me/salvolm)
