@@ -21,6 +21,16 @@
         "switch",
         "random"
       ]
+    },
+    {
+      "slug": "clocky",
+      "name": "clocky",
+      "description": "musical clock divider",
+      "tags": [
+        "quad",
+        "switch",
+        "random"
+      ]
     }
   ]
 }
