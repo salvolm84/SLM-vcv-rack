@@ -14,7 +14,7 @@
   "modules": [
     {
       "slug": "mux-freak",
-      "name": "mux-freak",
+      "name": "Mux Freak",
       "description": "4 to 1 clocked multiplexer with switch probability and gate length controls",
       "tags": [
         "quad",
@@ -24,7 +24,7 @@
     },
     {
       "slug": "the-tailor",
-      "name": "the-tailor",
+      "name": "The Tailor",
       "description": "musical clock divider",
       "tags": [
         "quad",

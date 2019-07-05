@@ -6,8 +6,9 @@ struct TheTailor : Module {
 		NUM_PARAMS
 	};
 	enum InputId {
-		CH1_INPUT,
-		CH2_INPUT,
+		ENUMS(CH_INPUT, 2),
+		PITCH_INPUT,
+		SYNC_INPUT,
 		NUM_INPUTS
 	};
 	enum OutputId {
@@ -15,49 +16,50 @@ struct TheTailor : Module {
 		NUM_OUTPUTS
 	};
 	enum LightId {
-		CH1_LIGHT,
-		CH2_LIGHT,
+		ENUMS(CH_LIGHT, 2),
 		NUM_LIGHTS
 	};
+
+	int counter1 = 0;
+	int counter2 = 0;
+	int playingNow = 0;
+	float previousPitch = 0;
+
+	dsp::SchmittTrigger schmittTrigger;
 
 	TheTailor() {
 		// Configure the module
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
 
-		configParam(DIVISION_PARAM, 2.0f, 64.0f, 2.0f, "Division Factor", " counts");
+		configParam(GRAIN_SIZE_PARAM, 0.0f, 1.0f, 0.5f, "Cycle", " ratio");
 	}
 
 	void process(const ProcessArgs &args) override {
 
-		bool trigger = schmittTrigger.process(rescale(inputs[CLOCK_INPUT].getVoltage(), 0.1f, 2.f, 0.f, 1.f));
-		int currentDivision = (int)params[DIVISION_PARAM].getValue();
-
-		if (currentDivision != previousDivision)
+		if (schmittTrigger.process(rescale(inputs[SYNC_INPUT].getVoltage(), 0.1f, 2.f, 0.f, 1.f)))
 		{
-			counter = currentDivision - 2;
-			previousDivision = currentDivision;
+			float freq = dsp::FREQ_C4 * std::pow(2.f, inputs[PITCH_INPUT].getVoltage());
+			freq = clamp(freq, 0.f, 20000.f);
+
+			int samplesPerPeriod = (int)roundf((1.0f / freq) / args.sampleTime);
+
+			counter1 = (int)roundf(params[GRAIN_SIZE_PARAM].getValue() * (float)samplesPerPeriod);
+			counter2 = samplesPerPeriod - counter1;
+
+			playingNow = 0;
 		}
 
-		if (trigger)
+		if (counter1 <= 0)
 		{
-			inLightStatus = !inLightStatus;
-
-			if (counter == 0)
-			{
-				counter = currentDivision - 2;
-				outStatus = !outStatus;
-			}
-			else
-			{
-				counter--;
-			}
-			
+			playingNow = 1;
 		}
 
-		outputs[CLOCK_OUTPUT].setVoltage(outStatus ? 10.0f : 0.0f);
-		lights[IN_LIGHT].setBrightness(inputs[CLOCK_INPUT].getVoltage() < 0.5f ? 1.f : 0.f);
-		lights[OUT_LIGHT].setBrightness(outputs[CLOCK_OUTPUT].getVoltage() < 0.5f ? 1.f : 0.f);
+		outputs[MAIN_OUTPUT].setVoltage(inputs[CH_INPUT + playingNow].getVoltage());
 
+		lights[CH_LIGHT + 0].setBrightness(playingNow == 0 ? 1.0f : 0.0f);
+		lights[CH_LIGHT + 1].setBrightness(playingNow == 1 ? 1.0f : 0.0f);
+
+		counter1--;
 	}
 };
 
@@ -72,13 +74,18 @@ struct TheTailorWidget : ModuleWidget {
 		addChild(createWidget<SLMScrew>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<SLMScrew>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addInput(createInput<SLMInputPort>(Vec(25, 328), module, Clocky::CLOCK_INPUT));
-		addOutput(createOutput<SLMOutputPort>(Vec(80, 327), module, Clocky::CLOCK_OUTPUT));
+		auto k = createParam<SLMSmallKnobGreen>(Vec(15, 82), module, TheTailor::GRAIN_SIZE_PARAM);
+		k->snap = false;
+		addParam(k);
 
-		addParam(createParam<SLMSmallKnobPink>(Vec(15, 132), module, Clocky::DIVISION_PARAM));
+		addInput(createInput<SLMInputPort>(Vec(17, 185), module, TheTailor::CH_INPUT + 0));
+		addInput(createInput<SLMInputPort>(Vec(62, 185), module, TheTailor::CH_INPUT + 1));
+		addInput(createInput<SLMInputPort>(Vec(62, 230), module, TheTailor::PITCH_INPUT));
+		addInput(createInput<SLMInputPort>(Vec(17, 230), module, TheTailor::SYNC_INPUT));
+		addOutput(createOutput<SLMOutputPort>(Vec(80, 327), module, TheTailor::MAIN_OUTPUT));
 
-		addChild(createLight<MediumLight<RedLight>>(Vec(41, 59), module, Clocky::IN_LIGHT));
-		addChild(createLight<MediumLight<RedLight>>(Vec(41, 79), module, Clocky::OUT_LIGHT));
+		addChild(createLight<MediumLight<RedLight>>(Vec(17, 210), module, TheTailor::CH_LIGHT + 0));
+		addChild(createLight<MediumLight<RedLight>>(Vec(62, 210), module, TheTailor::CH_LIGHT + 1));
 	}
 };
 
