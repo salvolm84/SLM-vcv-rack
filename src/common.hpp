@@ -7,7 +7,7 @@ struct SLMSmallKnobGreen : app::SvgKnob {
 	SLMSmallKnobGreen() {
 		minAngle = -0.67*M_PI;
 		maxAngle = 0.67*M_PI;
-		snap = true;
+		//snap = true;
 		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/small_knob_green.svg")));
 	}
 };
@@ -16,7 +16,7 @@ struct SLMSmallKnobPink : app::SvgKnob {
 	SLMSmallKnobPink() {
 		minAngle = -0.67*M_PI;
 		maxAngle =  0.67*M_PI;
-		snap = true;
+		//snap = true;
 		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/small_knob_pink.svg")));
 	}
 };

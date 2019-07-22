@@ -25,6 +25,8 @@ struct TheTailor : Module {
 	int playingNow = 0;
 	float previousPitch = 0;
 
+	int pitchCounter = 0;
+
 	dsp::SchmittTrigger schmittTrigger;
 
 	TheTailor() {
@@ -47,7 +49,16 @@ struct TheTailor : Module {
 			counter2 = samplesPerPeriod - counter1;
 
 			playingNow = 0;
+
+			freq = 1.0f / ((float)pitchCounter * args.sampleTime);
+
+			pitchCounter = 0;
 		}
+		else
+		{
+			pitchCounter++;
+		}
+		
 
 		if (counter1 <= 0)
 		{

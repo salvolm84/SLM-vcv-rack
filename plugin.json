@@ -31,6 +31,16 @@
         "switch",
         "random"
       ]
+    },
+    {
+      "slug": "test",
+      "name": "Test",
+      "description": "test module used for development",
+      "tags": [
+        "quad",
+        "switch",
+        "random"
+      ]
     }
   ]
 }

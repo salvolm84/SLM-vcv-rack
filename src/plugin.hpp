@@ -9,3 +9,4 @@ extern Plugin *pluginInstance;
 // Declare each Model, defined in each module source file
 extern Model *modelMuxFreak;
 extern Model *modelTheTailor;
+extern Model *modelTest;
