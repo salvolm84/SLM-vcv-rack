@@ -181,40 +181,46 @@ struct MuxFreakWidget : ModuleWidget {
 		addChild(createWidget<SLMScrew>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<SLMScrew>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addParam(createParam<SLMToggleButton>(Vec(20, 35), module, MuxFreak::SOLO_PARAM + 0));
-		addParam(createParam<SLMToggleButton>(Vec(65, 35), module, MuxFreak::SOLO_PARAM + 1));
-		addParam(createParam<SLMToggleButton>(Vec(110, 35), module, MuxFreak::SOLO_PARAM + 2));
-		addParam(createParam<SLMToggleButton>(Vec(155, 35), module, MuxFreak::SOLO_PARAM + 3));
+		addParam(createParam<SLMToggleButton>(Vec(20, 56), module, MuxFreak::SOLO_PARAM + 0));
+		addParam(createParam<SLMToggleButton>(Vec(65, 56), module, MuxFreak::SOLO_PARAM + 1));
+		addParam(createParam<SLMToggleButton>(Vec(110, 56), module, MuxFreak::SOLO_PARAM + 2));
+		addParam(createParam<SLMToggleButton>(Vec(155, 56), module, MuxFreak::SOLO_PARAM + 3));
 
-		addParam(createParam<SLMSmallKnobGreen>(Vec(15, 82), module, MuxFreak::PROB_PARAM + 0));
-		addParam(createParam<SLMSmallKnobGreen>(Vec(60, 82), module, MuxFreak::PROB_PARAM + 1));
-		addParam(createParam<SLMSmallKnobGreen>(Vec(105, 82), module, MuxFreak::PROB_PARAM + 2));
-		addParam(createParam<SLMSmallKnobGreen>(Vec(150, 82), module, MuxFreak::PROB_PARAM + 3));
+		addParam(createParam<SLMSmallKnobGreen>(Vec(15, 103), module, MuxFreak::PROB_PARAM + 0));
+		addParam(createParam<SLMSmallKnobGreen>(Vec(60, 103), module, MuxFreak::PROB_PARAM + 1));
+		addParam(createParam<SLMSmallKnobGreen>(Vec(105, 103), module, MuxFreak::PROB_PARAM + 2));
+		addParam(createParam<SLMSmallKnobGreen>(Vec(150, 103), module, MuxFreak::PROB_PARAM + 3));
 
-		addParam(createParam<SLMSmallKnobPink>(Vec(15, 132), module, MuxFreak::LEN_PARAM + 0));
-		addParam(createParam<SLMSmallKnobPink>(Vec(60, 132), module, MuxFreak::LEN_PARAM + 1));
-		addParam(createParam<SLMSmallKnobPink>(Vec(105, 132), module, MuxFreak::LEN_PARAM + 2));
-		addParam(createParam<SLMSmallKnobPink>(Vec(150, 132), module, MuxFreak::LEN_PARAM + 3));
+		SLMSmallKnobRed* redKnobs[4];
+		redKnobs[0] = createParam<SLMSmallKnobRed>(Vec(15, 160), module, MuxFreak::LEN_PARAM + 0);
+		redKnobs[1] = createParam<SLMSmallKnobRed>(Vec(60, 160), module, MuxFreak::LEN_PARAM + 1);
+		redKnobs[2] = createParam<SLMSmallKnobRed>(Vec(105, 160), module, MuxFreak::LEN_PARAM + 2);
+		redKnobs[3] = createParam<SLMSmallKnobRed>(Vec(150, 160), module, MuxFreak::LEN_PARAM + 3);
 
-		addInput(createInput<SLMInputPort>(Vec(17, 185), module, MuxFreak::CH_INPUT + 0));
-		addInput(createInput<SLMInputPort>(Vec(62, 185), module, MuxFreak::CH_INPUT + 1));
-		addInput(createInput<SLMInputPort>(Vec(107, 185), module, MuxFreak::CH_INPUT + 2));
-		addInput(createInput<SLMInputPort>(Vec(152, 185), module, MuxFreak::CH_INPUT + 3));
+		for (int i = 0; i < 4; i++) {
+			redKnobs[i]->snap = true;
+			addParam(redKnobs[i]);
+		}
 
-		addInput(createInput<SLMInputPort>(Vec(17, 230), module, MuxFreak::PROB_INPUT + 0));
-		addInput(createInput<SLMInputPort>(Vec(62, 230), module, MuxFreak::PROB_INPUT + 1));
-		addInput(createInput<SLMInputPort>(Vec(107, 230), module, MuxFreak::PROB_INPUT + 2));
-		addInput(createInput<SLMInputPort>(Vec(152, 230), module, MuxFreak::PROB_INPUT + 3));
+		addInput(createInput<SLMInputPort>(Vec(49, 228), module, MuxFreak::CH_INPUT + 0));
+		addInput(createInput<SLMInputPort>(Vec(49, 260), module, MuxFreak::CH_INPUT + 1));
+		addInput(createInput<SLMInputPort>(Vec(49, 292), module, MuxFreak::CH_INPUT + 2));
+		addInput(createInput<SLMInputPort>(Vec(49, 324), module, MuxFreak::CH_INPUT + 3));
 
-		addInput(createInput<SLMInputPort>(Vec(17, 275), module, MuxFreak::LEN_INPUT + 0));
-		addInput(createInput<SLMInputPort>(Vec(62, 275), module, MuxFreak::LEN_INPUT + 1));
-		addInput(createInput<SLMInputPort>(Vec(107, 275), module, MuxFreak::LEN_INPUT + 2));
-		addInput(createInput<SLMInputPort>(Vec(152, 275), module, MuxFreak::LEN_INPUT + 3));
+		addInput(createInput<SLMInputPort>(Vec(85, 228), module, MuxFreak::PROB_INPUT + 0));
+		addInput(createInput<SLMInputPort>(Vec(85, 260), module, MuxFreak::PROB_INPUT + 1));
+		addInput(createInput<SLMInputPort>(Vec(85, 292), module, MuxFreak::PROB_INPUT + 2));
+		addInput(createInput<SLMInputPort>(Vec(85, 324), module, MuxFreak::PROB_INPUT + 3));
 
-		addInput(createInput<SLMInputPort>(Vec(25, 328), module, MuxFreak::CLK_INPUT));
+		addInput(createInput<SLMInputPort>(Vec(120, 228), module, MuxFreak::LEN_INPUT + 0));
+		addInput(createInput<SLMInputPort>(Vec(120, 260), module, MuxFreak::LEN_INPUT + 1));
+		addInput(createInput<SLMInputPort>(Vec(120, 292), module, MuxFreak::LEN_INPUT + 2));
+		addInput(createInput<SLMInputPort>(Vec(120, 324), module, MuxFreak::LEN_INPUT + 3));
 
-		addOutput(createOutput<SLMOutputPort>(Vec(80, 327), module, MuxFreak::TRIG_OUTPUT));
-		addOutput(createOutput<SLMOutputPort>(Vec(129, 327), module, MuxFreak::MUX_OUTPUT));
+		addInput(createInput<SLMInputPort>(Vec(17, 276), module, MuxFreak::CLK_INPUT));
+
+		addOutput(createOutput<SLMOutputPort>(Vec(161, 260), module, MuxFreak::TRIG_OUTPUT));
+		addOutput(createOutput<SLMOutputPort>(Vec(161, 291), module, MuxFreak::MUX_OUTPUT));
 	}
 };
 

@@ -11,6 +11,7 @@
   "manualUrl": "https://github.com/salvolm84/SLM-vcv-rack/blob/master/README.md",
   "sourceUrl": "https://github.com/salvolm84/SLM-vcv-rack",
   "donateUrl": "https://paypal.me/salvolm",
+  "changelogUrl": "https://github.com/salvolm84/SLM-vcv-rack/blob/master/CHANGELOG.md",
   "modules": [
     {
       "slug": "mux-freak",
@@ -25,21 +26,9 @@
     {
       "slug": "the-tailor",
       "name": "The Tailor",
-      "description": "musical clock divider",
+      "description": "waveforms morphing tool",
       "tags": [
-        "quad",
-        "switch",
-        "random"
-      ]
-    },
-    {
-      "slug": "test",
-      "name": "Test",
-      "description": "test module used for development",
-      "tags": [
-        "quad",
-        "switch",
-        "random"
+        "digital"
       ]
     }
   ]
